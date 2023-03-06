@@ -6,8 +6,8 @@ let MONGO = process.env.MONGO_URL;
 if (process.env.NODE_ENV === "production") {
   MONGO = process.env.MONGO_URL;
 }
-console.log(process.env.MONGO_URL);
-const db = mongoose.createConnection(process.env.MONGO_URL, {
+
+const db = mongoose.createConnection(process.env.MONGO_URL.toString(), {
   useNewUrlParser: true,
   serverSelectionTimeoutMS: 0,
   socketTimeoutMS: 0,
