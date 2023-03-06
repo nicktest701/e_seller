@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-// let MONGO = process.env.MONGO_URL;
- let MONGO = process.env.MONGO_URL_LOCAL;
+let MONGO = process.env.MONGO_URL;
+//  let MONGO = process.env.MONGO_URL_LOCAL;
 
 if (process.env.NODE_ENV === "production") {
   MONGO = process.env.MONGO_URL;
@@ -27,6 +27,5 @@ process.on("SIGINT", async () => {
   await db.close();
   process.exit(0);
 });
-
 
 module.exports = db;
