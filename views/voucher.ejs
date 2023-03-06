@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", "Roboto", "Radio Canada", -apple-system,
+                BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+                "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* @page {
+            size: landscape;
+        } */
+    </style>
+</head>
+
+
+<body style='font-family: "Poppins",sans-serif;background-color:whitesmoke;padding:16px;color:#333;'>
+    <div style="padding-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));row-gap:24px;">
+        <% vouchers.forEach(function(voucher){%>
+            <div style="width:max-content;border:solid 2px black;padding:8px">
+                <p style="text-align:center">
+                    <%= voucher?.voucherType %>
+                </p>
+                <hr class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root" color="#000" />
+                <div class="voucher-cover" style="display:flex;gap: 10px;">
+                    <p style="font-size:11px;width:25%;text-transform:uppercase">Serial</p>
+                    <p style="font-size:11px;font-weight:bold">
+                        <%= voucher?.serial %>
+                    </p>
+                </div>
+                <div class="voucher-cover" style="display:flex;gap: 10px;">
+                    <p style="font-size:11px;width:25%;text-transform:uppercase">Pin</p>
+                    <p style="font-size:11px;font-weight:bold">
+                        <%= voucher?.pin %>
+                    </p>
+                </div>
+                <div class="voucher-cover" style="display:flex;gap: 10px;">
+                    <p style="font-size:11px;width:25%;text-transform:uppercase">Amount</p>
+                    <p style="font-size:11px;font-weight:bold">
+                        <%= voucher?.price %>
+                    </p>
+                </div>
+                <div class="voucher-cover" style="display:flex;gap: 10px;">
+                    <p style="font-size:11px;width:25%;text-transform:uppercase">URL</p><a href=<%=`${info?.dataURL}` %>
+                        style="font-size:11px;font-weight:bold" rel="noreferrer"
+                        target="_blank"><%= info?.dataURL %></a>
+                </div>
+                <div class="voucher-cover" style="display:flex;gap: 10px;">
+                    <p style="font-size:11px;width:25%;text-transform:uppercase">Agent</p>
+                    <p style="font-size:11px;font-weight:bold">
+                        <%= info.agentName %>
+                    </p>
+                </div>
+                <div class="voucher-cover" style="display:flex;gap: 10px;">
+                    <p style="font-size:11px;width:25%;text-transform:uppercase">Phone</p>
+                    <p style="font-size:11px;font-weight:bold">
+                        <%= info.agentPhoneNumber %>
+                    </p>
+                </div>
+                <hr class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root" color="#000" />
+                <p style="font-size:9px;font-weight:bold">Powered by</p>
+                <p style="font-size:9px">Frebbytech Consults</p>
+                <p style="font-size:9px;font-weight:bold">Contact Us:</p>
+                <div style="display:flex;flex-direction:column;row-gap:3px"><a href="tel:+233543772591"
+                        color="primary.main" style="font-size:9px">0560372844</a><a
+                        href="mailto:frebbytechconsults@gmail.com" color="primary.main"
+                        style="font-size:9px">frebbytechconsults@gmail.com</a></div>
+            </div>
+
+            <% }) %>
+
+    </div>
+</body>
+
+</html>

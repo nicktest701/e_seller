@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", "Roboto", "Radio Canada", -apple-system,
+                BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+                "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            padding: 16px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            place-items: center;
+            gap: 16px;
+        }
+
+        .bus-container {
+            min-width: 320px;
+            position: relative;
+            padding: 16px;
+            background-color: whitesmoke;
+            border: 1px dotted #000;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+
+        .qrbox {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+
+        }
+
+        .curve {
+            position: absolute;
+            width: 600px;
+            height: 150px;
+            background-color: #007acc;
+            bottom: -110%;
+            left: -20%;
+            transform: rotate(25deg)
+        }
+
+        .curve::before {
+            position: absolute;
+            bottom: -3%;
+            left: -20%;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #8ca3b3;
+        }
+
+        .title {
+            color: #007acc;
+            font-size: 10px;
+        }
+
+        .value {
+            font-size: 12px;
+        }
+
+        .flex-wrapper {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flex-wrapper div:first-child {
+            width: 45%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="wrapper">
+        <% vouchers.forEach(voucher=> { %>
+            <div class="bus-container">
+                <h2>Bus Ticket</h2>
+
+                <div class="qrbox">
+                    <img src=<%=voucher?.qrCode %>
+                    alt="code">
+                </div>
+                <div class="content">
+                    <small class="title">Ticket No.</small>
+                    <p class="value">
+                        <%= voucher?.serial %>
+                    </p>
+
+                    <small class="title">Email</small>
+                    <p class="value">
+                        <%= info?.agentEmail %>
+                    </p>
+
+                    <div class="flex-wrapper">
+                        <div> <small class="title">Origin</small>
+                            <p class="value">
+                                <%= info?.origin %>
+                            </p>
+                        </div>
+                        <div> <small class="title">Destination</small>
+                            <p class="value">
+                                <%= info?.destination %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-wrapper">
+                        <div> <small class="title">Date</small>
+                            <p class="value">
+                                <%= info?.date %>
+                            </p>
+                        </div>
+                        <div> <small class="title">Time</small>
+                            <p class="value">
+                                <%= info?.time %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="curve"></div> -->
+                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg width="60px" height="60px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#000000"
+                        d="M47 145c-10 0-23 12.4-23 24.9v134.3l52.49 7.5C84.97 297 100.9 287 119 287c21 0 39 13.3 45.9 32h188.2c6.9-18.7 24.9-32 45.9-32s39 13.3 45.9 32H488v-77.2L456.5 145zm-9 14h405.6l25.6 82H296v64h-98v-64H38zm18 18v46h62v-46zm80 0v46h62v-46zm80 0v110h22V177zm40 0v110h22V177zm40 0v46h62v-46zm86.6 0v46h62.2l-14.4-46zM119 305c-17.2 0-31 13.8-31 31s13.8 31 31 31 31-13.8 31-31-13.8-31-31-31zm280 0c-17.2 0-31 13.8-31 31s13.8 31 31 31 31-13.8 31-31-13.8-31-31-31zm-280 23a8 8 0 0 1 8 8 8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm280 0a8 8 0 0 1 8 8 8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8z" />
+                </svg>
+            </div>
+            <% }) %>
+
+</body>
+
+</html>

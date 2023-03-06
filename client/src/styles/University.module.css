@@ -1,0 +1,67 @@
+h1 {
+  font-size: 1.3rem;
+  padding-bottom: 4px;
+  color: #083d77;
+}
+
+small {
+  letter-spacing: 1.1;
+}
+
+/* @page {
+    size: landscape;
+} */
+img {
+  object-fit: contain;
+  width: 35px;
+  height: 35px;
+}
+/* .template {
+} */
+
+.wrapper {
+  display: grid;
+  place-items: center;
+}
+.image_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-block: 8px;
+}
+
+.voucher_title {
+  text-align: center;
+}
+.school {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.voucher {
+  color: #868585;
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.top_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  gap: 20px;
+  padding-top: 10px;
+}
+.top_container * small:first-child {
+  font-weight: bold;
+  margin-right: 2px;
+  white-space: nowrap;
+}
+.top_container > div {
+  white-space: nowrap;
+}

@@ -1,0 +1,81 @@
+img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper {
+  padding: 16px;
+}
+
+.bus_container {
+  max-width: 320px;
+  position: relative;
+  padding: 16px;
+  background-color: #ccc !important;
+  background: #ccc;
+  border: 1px dotted #000;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.qrbox {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+}
+.qrbox > img {
+  width: 100%;
+  height: 100%;
+}
+
+/* .curve {
+  position: absolute;
+  width: 600px;
+  height: 150px;
+  background-color: #007acc;
+  bottom: -110%;
+  left: -20%;
+  transform: rotate(25deg);
+}
+
+.curve::before {
+  position: absolute;
+  bottom: -3%;
+  left: -20%;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #8ca3b3;
+} */
+
+.item_title {
+  color: #007acc;
+  font-size: 10px;
+}
+
+.item_value {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.flex_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+.bus_svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.1;
+}
