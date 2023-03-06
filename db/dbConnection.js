@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === "production") {
 
 const db = mongoose.createConnection(MONGO, {
   dbName: "Momo",
+  useNewUrlParser: true,
   serverSelectionTimeoutMS: 0,
   socketTimeoutMS: 0,
   connectTimeoutMS: 0,
