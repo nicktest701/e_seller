@@ -18,12 +18,13 @@ const sendMail = async (transaction_id, email_address) => {
     const transportMail = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        type: "OAUTH2",
-        user: "aamustedresults@gmail.com",
-        clientId: process.env.MAIL_CLIENT_ID,
-        clientSecret: process.env.MAIL_CLIENT_SECRET,
-        refreshToken: process.env.MAIL_REFRESH_TOKEN,
-        accessToken: ACCESS_TOKEN,
+        // type: "OAUTH2",
+        user: "nicktest701@gmail.com",
+        pass: process.env.MAIL_CLIENT_PASS,
+        // clientId: process.env.MAIL_CLIENT_ID,
+        // clientSecret: process.env.MAIL_CLIENT_SECRET,
+        // refreshToken: process.env.MAIL_REFRESH_TOKEN,
+        // accessToken: ACCESS_TOKEN,
       },
       tls: {
         rejectUnauthorized: false,
@@ -31,7 +32,7 @@ const sendMail = async (transaction_id, email_address) => {
     });
 
     const mailOptions = {
-      from: "aamustedresults@gmail.com",
+      from: "nicktest701@gmail.com",
       to: [email_address],
       subject: "FrebbyTech Consults",
       text: "Application Vouchers",
@@ -47,7 +48,7 @@ const sendMail = async (transaction_id, email_address) => {
     const mailResult = await transportMail.sendMail(mailOptions);
     return mailResult;
   } catch (error) {
-     console.log(error);
+    console.log(error);
     throw error.message;
   }
 };

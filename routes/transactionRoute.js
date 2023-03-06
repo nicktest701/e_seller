@@ -43,9 +43,9 @@ router.post(
     //Check if voucher pdf already exists
     if (fs.existsSync(path.join(process.cwd(), "/vouchers/", `${id}.pdf`))) {
       // await sendMail(id, transaction?.info?.agentEmail);
-      // if (process.env.NODE_ENV === "production") {
-      //   await sendMail(id, transaction?.info?.agentEmail);
-      // }
+      if (process.env.NODE_ENV === "production") {
+        await sendMail(id, transaction?.info?.agentEmail);
+      }
     } else {
       //Generate new voucher template
       const template = await generateVoucherTemplate(transaction);
@@ -57,9 +57,9 @@ router.post(
 
       // await sendMail(id, transaction?.info?.agentEmail);
 
-      // if (process.env.NODE_ENV === "production") {
-      //   const mailResult = await sendMail(id, transaction?.info?.agentEmail);
-      // }
+      if (process.env.NODE_ENV === "production") {
+        const mailResult = await sendMail(id, transaction?.info?.agentEmail);
+      }
     }
     const soldVouchers_ids = _.map(transaction.vouchers, "id");
     const soldVouchers = await Voucher.updateMany(
@@ -76,8 +76,6 @@ router.post(
         new: true,
       }
     );
-    console.log("soldVouchers");
-    console.log(soldVouchers);
 
     res.status(200).send(id);
   })

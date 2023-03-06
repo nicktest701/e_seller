@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
  let MONGO = process.env.MONGO_URL_LOCAL;
 
 if (process.env.NODE_ENV === "production") {
-  console.log("production")
   MONGO = process.env.MONGO_URL;
 }
 
